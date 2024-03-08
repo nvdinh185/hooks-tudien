@@ -1,5 +1,5 @@
 {
-  "name": "learn-react-",
+  "name": "new",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -9,12 +9,6 @@
   },
   "scripts": {
     "start": "react-scripts start"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
