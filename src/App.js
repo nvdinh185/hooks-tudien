@@ -3,13 +3,13 @@ import { useState } from "react";
 const initialData = [
   {
     id: 1,
-    eng: 'Hello',
-    vie: 'Xin chao'
+    eng: 'hello',
+    vie: 'xin chao'
   },
   {
     id: 2,
-    eng: 'Hi',
-    vie: 'Chao'
+    eng: 'hi',
+    vie: 'chao'
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ export default function App() {
     }
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     let check = true;
     if (!eng) {
@@ -79,6 +79,14 @@ export default function App() {
       setEng('');
       setVie('');
     }
+  }
+
+  const translate = () => {
+    let word = listWords.find(word => word.eng === eng);
+    // for (let i = 0; i < listWords.length; i++) {
+    //   if (listWords[i].eng === eng) vietnam = listWords[i].vie;
+    // }
+    setVie(word.vie);
   }
 
   return (
@@ -115,6 +123,9 @@ export default function App() {
           <button>Them</button>
         </div>
       </form>
+
+      <button onClick={() => translate()}>Dich tu</button>
+      <h1>TU DIEN ANH - VIET</h1>
       <ul>
         {listWords.map(word =>
           <li key={word.id}>
