@@ -92,10 +92,11 @@ export default function App() {
 
   const translate = () => {
     let word = listWords.find(word => word.eng === eng);
-    // for (let i = 0; i < listWords.length; i++) {
-    //   if (listWords[i].eng === eng) vietnam = listWords[i].vie;
-    // }
-    setVie(word.vie);
+    if (word) {
+      setVie(word.vie);
+    } else {
+      setError('Khong tim thay trong tu dien');
+    }
   }
 
   return (
