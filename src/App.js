@@ -25,6 +25,7 @@ export default function App() {
 
   const [errorEng, setErrorEng] = useState('');
   const [errorVie, setErrorVie] = useState('');
+  const [error, setError] = useState('');
 
   const handleBlur = (e) => {
     if (e.target.name === 'eng') {
@@ -53,6 +54,14 @@ export default function App() {
       setErrorEng('Vui lòng nhập tu tieng Anh');
       check = false;
     }
+
+    let idx = listWords.findIndex(word => word.eng === eng);
+
+    if (idx >= 0) {
+      setError('Tu nay da ton tai trong tu dien');
+      check = false;
+    }
+
     if (!vie) {
       setErrorVie('Vui lòng nhập nghia tieng Viet');
       check = false;
@@ -91,6 +100,11 @@ export default function App() {
 
   return (
     <>
+
+      <p style={{
+        color: 'red',
+        fontStyle: 'italic'
+      }}>{error}</p>
       <form onSubmit={(e) => handleSubmit(e)}>
         <div>
           <label>English</label>
